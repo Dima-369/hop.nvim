@@ -1,4 +1,9 @@
-                                              __
+# Fork changes
+
+- added `HopUrl` command to jump to URLs
+
+# Original README
+
                                              / /_  ____  ____
                                             / __ \/ __ \/ __ \
                                            / / / / /_/ / /_/ /
