@@ -492,6 +492,27 @@ function M.hint_anywhere(opts)
   M.hint_with_regex(jump_regex.regex_by_anywhere(), opts)
 end
 
+---@param opts Options
+function M.hint_url(opts)
+  local jump_regex = require('hop.jump_regex')
+  local jump_target = require('hop.jump_target')
+
+  opts = override_opts(opts)
+  
+  -- Create jump target generator for URLs
+  local jump_target_gtr = jump_target.jump_target_generator(jump_regex.regex_by_url())
+  
+  -- Use hint_with_callback to support custom callback after jumping
+  M.hint_with_callback(jump_target_gtr, opts, function(jt)
+    M.move_cursor_to(jt, opts)
+    
+    -- Execute callback if provided in opts
+    if opts.callback then
+      opts.callback(jt)
+    end
+  end)
+end
+
 -- Setup user settings.
 function M.setup(opts)
   -- Look up keys in user-defined table with fallback to defaults.

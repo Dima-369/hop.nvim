@@ -15,6 +15,7 @@ local commands = {
   HopPattern = hop.hint_patterns,
   HopAnywhere = hop.hint_anywhere,
   HopCamelCase = hop.hint_camel_case,
+  HopUrl = hop.hint_url,
 }
 
 for label, hint in pairs(commands) do

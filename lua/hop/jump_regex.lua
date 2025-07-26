@@ -173,4 +173,10 @@ function M.regex_by_anywhere()
   return regex_by_searching('\\v(<.|^$)|(.>|^$)|(\\l)\\zs(\\u)|(_\\zs.)|(#\\zs.)')
 end
 
+-- URL regex.
+---@return Regex
+function M.regex_by_url()
+  return regex_by_searching('\\v(https?://|http://)[^[:space:]<>"{}|\\^`\\[\\]]+')
+end
+
 return M
